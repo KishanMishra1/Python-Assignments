@@ -18,6 +18,17 @@ def find_duplicates(list_of_numbers):
         count=0
     return res
 
+def find_duplicates2(list_of_numbers):
+l=[]
+for i in list_of_numbers:
+x=list_of_numbers.count(i)
+if x>=2:
+l.append(i)
+l=set(l)
+l=list(l)
+return l
+
+
 list_of_numbers=[1,2,2,3,3,3,4,4,4,4]
 list_of_duplicates=find_duplicates(list_of_numbers)
 print(list_of_duplicates)
