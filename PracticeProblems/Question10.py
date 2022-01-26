@@ -9,7 +9,7 @@ Note: If the string length is equal to 2, consider the 2 characters to be the fi
 def string_both_ends(input_string):
     if len(input_string)==2:
         return input_string*2
-    elif len(input_string)==3:
+    elif len(input_string)==3: #condition missing
         return input_string[:-1]
     elif len(input_string) == 4:
         return input_string
