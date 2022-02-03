@@ -14,31 +14,38 @@ The text would begin with a word and there will be only a single space between t
 
 Perform case insensitive string comparisons wherever necessary.'''
 
-"'USELESS TESTCASE 2..NOT PASSED"'
-import sys
+
+#lex_auth_0127382283825971201450
 
 def max_frequency_word_counter(data):
-    data_l=data.split()
-    dict={}
-    frequency=0
-    count=0
+    dict2={}
+    data=data.lower()
+    data_l=data.split(" ")
     for i in data_l:
-        if i in dict:
-            dict[i]+=1
+        if i in dict2:
+            dict2[i]+=1
         else:
-            dict[i]=1
-    max=-sys.maxsize-1
-    for j in dict.values():
-        if j>max:
-            max=j
-    for i, j in dict.items():
-        if j == max:
-            p=i
-    print("{} {}".format(p, max))
-
+            dict2[i]=1
+    max_freq=max(dict2.values())
+    #print(max_freq)
+    max_freq_words=[]
+    for i in dict2:
+        if dict2[i]==max_freq:
+            max_freq_words.append(i)
+    #print(max_freq_words)
+    if len(max_freq_words)==1:
+        print( max_freq_words[0]+" "+str(max_freq))
+    else:
+        max_le=0
+        max_word=""
+        for i in max_freq_words:
+            if len(i)>max_le:
+                max_le=len(i)
+                max_word=i
+        print(max_word+" "+ str(max_freq))
 
 
 
 #Provide different values for data and test your program.
-data="Work like you do not need money, love like you have never been hurt, and dance like no one is watching"
+data="Work like you do not need money love like you have never been hurt and dance like no one is watching is is"
 max_frequency_word_counter(data)
